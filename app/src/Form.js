@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function form(){
+function Form({onSubmit}){
 	const [sala, setSala] = useState('');
 	
 	const handleSubmit = (event) => {
@@ -20,10 +20,11 @@ function form(){
 				/>
 			</div>
 			<div>
-				<button type="submit">Enviar<button>
+				<button type="submit">Enviar</button>
 			</div>
 			
 		</form>
 	);
 }
 
+export default Form;
