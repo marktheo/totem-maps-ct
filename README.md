@@ -1,13 +1,13 @@
-# totem-maps-ct
-Componentes:
+# Totem Maps CT
+## Componentes
+### Estruturais:
+> - Cabeçalho
+> - Containeres
+> - Rodapé
+> - Estilização
 
--Estruturais;
-	-Footer;
-	-Header;
-	-Divs;
-	-Estilização;
--Funcionais;
-	-Formularios de pesquisa;
-	-Canva dinâmico:
-		resolution_absolute: 1280x720 px;
-		correspondencia codigo para coordenadas;
+### Funcionais:
+> - Formulários de Pesquisa
+> - Canva Dinâmico
+> > - Resolução Absoluta: 1280x720px
+> > - Correspondência entre sala e coordenadas
