@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import {ReactComponent as MapSvg} from '../logo.svg'
+import {ReactComponent as MapSvg} from '../images/B102.svg'
 
 function Map({ coordinates }) {
   const canvasRef = useRef(null);
@@ -21,8 +21,8 @@ function Map({ coordinates }) {
   }, [coordinates]);
 
   return (
-    <div style={{ position: 'relative', width: '600px', height: '400px' }}>
-      <MapSvg width="600" height="400" style={{ position: 'absolute', top: 0, left: 0 }} />
+    <div style={{ position: 'relative', width: '1920px', height: '1080px' }}>
+      <MapSvg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0 }} />
       <canvas ref={canvasRef} width="600" height="400" style={{ position: 'absolute', top: 0, left: 0 }} />
     </div>
   );
