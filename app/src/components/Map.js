@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import {ReactComponent as MapSvg} from '../images/B102.svg'
+import {ReactComponent as MapSvg} from './images/B102.svg'
 
 function Map({ coordinates }) {
   const canvasRef = useRef(null);

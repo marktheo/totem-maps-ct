@@ -1,24 +1,22 @@
-// src/MapPage.js
-import React, { useEffect } from 'react';
-import { ReactSVG } from 'react-svg';
+import React, { useState, useEffect } from 'react';
 
 function MapPage({ svg_path }) {
+  const [svgUrl, setSvgUrl] = useState(null);
+
   useEffect(() => {
-    console.log('Current SVG path:', svg_path);
-    console.log('Current page URL:', window.location.href);
+    const loadSvg = async () => {
+      try {
+        const svgModule = await import(`${svg_path}`);
+        setSvgUrl(svgModule.default);
+      } catch (error) {
+        console.error('Erro ao carregar o logo:', error);
+      }
+    };
+
+    loadSvg();
   }, [svg_path]);
 
-  return (
-    <div>
-      <h1>Map</h1>
-      <div style={{ width: '1920px', height: '1080px' }}>
-        <ReactSVG 
-          src="images/C101.svg"
-          onError={() => console.error("Error loading SVG")}
-        />
-      </div>
-    </div>
-  );
+  return svgUrl ? <img src={svgUrl} alt="SVG" /> : <div>Carregando logo...</div>;
 }
 
 export default MapPage;

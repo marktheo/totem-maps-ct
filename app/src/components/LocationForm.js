@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
+import logoUfrj from '../ufrj_neg.png'
 import '../App.css'; // Import the CSS file for styling
+import './Header/Header' // Import Header
 import csvData from '../table.csv'
 
 function LocationForm({ onSubmit }) {
@@ -65,34 +67,46 @@ function LocationForm({ onSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          Categoria:
-          <select required value={category} onChange={(e) => setCategory(e.target.value)}>
-            <option value="">Selecione uma categoria</option>
-            <option value="class">Salas</option>
-            <option value="laboratories">Laboratórios</option>
-          </select>
-        </label>
+    <div className='container'>
+      <form onSubmit={handleSubmit}>
+        <div className='form-content'>
+
+      <div className='header-form'>
+        <img src={logoUfrj} />
+        <h1>Está procurando algum lugar?</h1>
+        <h2>Procure por aqui primeiro!</h2>
       </div>
-      {category && (
-        <div>
           <label>
-            Selecione uma opção:
-            <select required value={selectOption} onChange={(e) => setSelectOption(e.target.value)}>
-              <option value="">Selecione uma opção</option>
-              {filteredOptions.map((opt, index) => (
-                <option key={index} value={opt.svg_path}>
-                  {opt.location}
-                </option>
-              ))}
+            Categoria:
+            <select required value={category} onChange={(e) => setCategory(e.target.value)}>
+              <option value="">Selecione uma categoria</option>
+              <option value="class">Salas</option>
+              <option value="laboratories">Laboratórios</option>
             </select>
           </label>
         </div>
-      )}
-      <button type="submit">Submit</button>
-    </form>
+        {category && (
+          <div>
+            <label>
+              Selecione uma opção:
+              <select required value={selectOption} onChange={(e) => setSelectOption(e.target.value)}>
+                <option value="">Selecione uma opção</option>
+                {filteredOptions.map((opt, index) => (
+                  <option key={index} value={opt.svg_path}>
+                    {opt.location}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
+        <button type="submit">Buscar</button>
+        <div className='header-form'>
+          <div className='logo-form'>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }
 

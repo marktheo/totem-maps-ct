@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import LocationForm from './components/LocationForm';
 import MapPage from './components/MapPage';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [path, setPath] = useState([]);
@@ -20,10 +22,12 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route exact path="/" element={<LocationForm onSubmit={handleLocationSubmit} />} />
         <Route path="/map" element={<MapPage svg_path={path} />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
