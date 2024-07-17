@@ -14,6 +14,12 @@ function MapPage({ svg_path }) {
     };
 
     loadSvg();
+
+    document.body.style.background = 'none';
+
+    return () => {
+      document.body.style.backgroundColor = '';
+    };
   }, [svg_path]);
 
   return svgUrl ? <img src={svgUrl} alt="SVG" /> : <div>Carregando logo...</div>;

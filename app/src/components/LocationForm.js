@@ -42,6 +42,7 @@ function LocationForm({ onSubmit }) {
     };
 
     fetchOptions();
+
   }, []);
 
   const handleSubmit = (event) => {
@@ -71,24 +72,25 @@ function LocationForm({ onSubmit }) {
       <form onSubmit={handleSubmit}>
         <div className='form-content'>
 
-      <div className='header-form'>
-        <img src={logoUfrj} />
-        <h1>Está procurando algum lugar?</h1>
-        <h2>Procure por aqui primeiro!</h2>
-      </div>
+          <div className='header-form'>
+            <img src={logoUfrj} />
+            <h1>Está procurando algum lugar?</h1>
+            <h2>Procure por aqui primeiro!</h2>
+          </div>
           <label>
-            Categoria:
+          O que você procura?
+          <br></br>
             <select required value={category} onChange={(e) => setCategory(e.target.value)}>
-              <option value="">Selecione uma categoria</option>
+              <option value="">Selecione uma opção</option>
               <option value="class">Salas</option>
               <option value="laboratories">Laboratórios</option>
             </select>
           </label>
-        </div>
-        {category && (
+          {category && (
           <div>
             <label>
-              Selecione uma opção:
+              Qual o local?
+              <br></br>
               <select required value={selectOption} onChange={(e) => setSelectOption(e.target.value)}>
                 <option value="">Selecione uma opção</option>
                 {filteredOptions.map((opt, index) => (
@@ -99,8 +101,10 @@ function LocationForm({ onSubmit }) {
               </select>
             </label>
           </div>
-        )}
-        <button type="submit">Buscar</button>
+          )}
+          <br></br>
+          <button className='submit' type="submit">Buscar</button>
+        </div>
         <div className='header-form'>
           <div className='logo-form'>
           </div>
